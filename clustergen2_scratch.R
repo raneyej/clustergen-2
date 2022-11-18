@@ -154,3 +154,18 @@ run12_comb <- cbind(run12_dat, run12_mem)
 run12_plot <- ggplot(run12_comb, aes(x = x1, y = x2, color = as.factor(cluster))) +geom_point() +scale_color_manual(
   values = c("blueviolet", "deeppink1", "orchid1", "mediumpurple1", "violetred")) + labs(title = "5 clusters, unequal size, sepVal = 0.01", color = "Cluster") + xlab("Variable 1") + ylab("Variable 2")
 run12_plot
+
+
+genRandomClust(5, sepVal = 0.01, numNonNoisy = 2, clustszind = 3, clustSizes = c(3, 9, 12, 18, 50), numReplicate = 1, fileName = "run13")
+
+run13_dat <- read.delim("/Users/emilyraney/Documents/clustergen2/clustergen-2/run13_1.dat", sep = " ")
+run13_mem <- read.delim("/Users/emilyraney/Documents/clustergen2/clustergen-2/run13_1.mem", header = FALSE, sep = " ", col.names = "cluster")
+
+run13_comb <- cbind(run13_dat, run13_mem)
+
+run13_plot <- ggplot(run13_comb, aes(x = x1, y = x2, color = as.factor(cluster))) +geom_point() +scale_color_manual(
+  values = c("blueviolet", "deeppink1", "orchid1", "mediumpurple1", "violetred")) + labs(title = "5 clusters, unequal size, sepVal = 0.01", color = "Cluster") + xlab("Variable 1") + ylab("Variable 2")
+run13_plot
+
+
+genRandomClust(5, )
