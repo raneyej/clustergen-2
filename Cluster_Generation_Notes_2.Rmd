@@ -1,3 +1,20 @@
+---
+title: "Cluster Generation Notes 2"
+author: "Emily Raney"
+date: "2022-11-17"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Runs with positive separation values 
+
+### Run 1
+3 clusters of equal size, separation value of 0.01, two non-noisy variables
+
+```{r}
 library(clusterGeneration)
 library(tidyverse)
 library(ggplot2)
@@ -17,9 +34,12 @@ class(run1_comb)
 run1_plot <- ggplot(run1_comb, aes(x = x1, y = x2, color = as.factor(cluster))) +geom_point() +scale_color_manual(
   values = c("blueviolet", "deeppink1", "orchid1")) + labs(title = "3 clusters, sepVal = 0.01", color = "Cluster") + xlab("Variable 1") + ylab("Variable 2")
 run1_plot
+```
 
+### Run 2
+5 clusters of equal size, separation value of 0.01, two non-noisy variables
 
-
+```{r}
 genRandomClust(5, sepVal = 0.01, numNonNoisy = 2, numNoisy = 0, numReplicate = 1, fileName = "run2")
 
 run2_dat <- read.delim("/Users/emilyraney/Documents/clustergen2/clustergen-2/run2_1.dat", sep = " ")
@@ -30,9 +50,11 @@ run2_comb <- cbind(run2_dat, run2_mem)
 run2_plot <- ggplot(run2_comb, aes(x = x1, y = x2, color = as.factor(cluster))) +geom_point() +scale_color_manual(
   values = c("blueviolet", "deeppink1", "orchid1", "mediumpurple1", "violetred")) + labs(title = "5 clusters, sepVal = 0.01", color = "Cluster") + xlab("Variable 1") + ylab("Variable 2")
 run2_plot
+```
 
-
-
+### Run 3 
+5 clusters of equal size, separation value of 0.25, two non-noisy variables
+```{r}
 genRandomClust(5, sepVal = 0.25, numNonNoisy = 2, numReplicate = 1, fileName = "run3")
 
 run3_dat <- read.delim("/Users/emilyraney/Documents/clustergen2/clustergen-2/run3_1.dat", sep = " ")
@@ -43,8 +65,11 @@ run3_comb <- cbind(run3_dat, run3_mem)
 run3_plot <- ggplot(run3_comb, aes(x = x1, y = x2, color = as.factor(cluster))) +geom_point() +scale_color_manual(
   values = c("blueviolet", "deeppink1", "orchid1", "mediumpurple1", "violetred")) + labs(title = "5 clusters, sepVal = 0.25", color = "Cluster") + xlab("Variable 1") + ylab("Variable 2")
 run3_plot
+```
 
-
+### Run 4
+5 clusters of equal size, separation value of .5, two non-noisy variables 
+```{r}
 genRandomClust(5, sepVal = 0.5, numNonNoisy = 2, numReplicate = 1, fileName = "run4")
 
 run4_dat <- read.delim("/Users/emilyraney/Documents/clustergen2/clustergen-2/run4_1.dat", sep = " ")
@@ -55,8 +80,11 @@ run4_comb <- cbind(run4_dat, run4_mem)
 run4_plot <- ggplot(run4_comb, aes(x = x1, y = x2, color = as.factor(cluster))) +geom_point() +scale_color_manual(
   values = c("blueviolet", "deeppink1", "orchid1", "mediumpurple1", "violetred")) + labs(title = "5 clusters, sepVal = 0.50", color = "Cluster") + xlab("Variable 1") + ylab("Variable 2")
 run4_plot
+```
 
-
+### Run 5
+5 clusters of equal size, separation value of 0.75, two non-noisy variables 
+```{r}
 genRandomClust(5, sepVal = 0.75, numNonNoisy = 2, numReplicate = 1, fileName = "run5")
 
 run5_dat <- read.delim("/Users/emilyraney/Documents/clustergen2/clustergen-2/run5_1.dat", sep = " ")
@@ -67,8 +95,11 @@ run5_comb <- cbind(run5_dat, run5_mem)
 run5_plot <- ggplot(run5_comb, aes(x = x1, y = x2, color = as.factor(cluster))) +geom_point() +scale_color_manual(
   values = c("blueviolet", "deeppink1", "orchid1", "mediumpurple1", "violetred")) + labs(title = "5 clusters, sepVal = 0.75", color = "Cluster") + xlab("Variable 1") + ylab("Variable 2")
 run5_plot
+```
 
-
+### Run 6
+5 clusters of equal size, separation value of 0.99, two non-noisy variables 
+```{r}
 genRandomClust(5, sepVal = 0.99, numNonNoisy = 2, numReplicate = 1, fileName = "run6")
 
 run6_dat <- read.delim("/Users/emilyraney/Documents/clustergen2/clustergen-2/run6_1.dat", sep = " ")
@@ -79,9 +110,14 @@ run6_comb <- cbind(run6_dat, run6_mem)
 run6_plot <- ggplot(run6_comb, aes(x = x1, y = x2, color = as.factor(cluster))) +geom_point() +scale_color_manual(
   values = c("blueviolet", "deeppink1", "orchid1", "mediumpurple1", "violetred")) + labs(title = "5 clusters, sepVal = 0.99", color = "Cluster") + xlab("Variable 1") + ylab("Variable 2")
 run6_plot
+```
 
 
+## Runs with negative separation values 
 
+### Run 7 
+5 clusters of equal size, separation value of -0.01, two non-noisy variables 
+```{r}
 genRandomClust(5, sepVal = -0.01, numNonNoisy = 2, numReplicate = 1, fileName = "run7")
 
 run7_dat <- read.delim("/Users/emilyraney/Documents/clustergen2/clustergen-2/run7_1.dat", sep = " ")
@@ -92,8 +128,11 @@ run7_comb <- cbind(run7_dat, run7_mem)
 run7_plot <- ggplot(run7_comb, aes(x = x1, y = x2, color = as.factor(cluster))) +geom_point() +scale_color_manual(
   values = c("blueviolet", "deeppink1", "orchid1", "mediumpurple1", "violetred")) + labs(title = "5 clusters, sepVal = -0.01", color = "Cluster") + xlab("Variable 1") + ylab("Variable 2")
 run7_plot
+```
 
-
+### Run 8 
+5 clusters of equal size, separation value of -0.25, two non-noisy variables 
+```{r}
 genRandomClust(5, sepVal = -0.25, numNonNoisy = 2, numReplicate = 1, fileName = "run8")
 
 run8_dat <- read.delim("/Users/emilyraney/Documents/clustergen2/clustergen-2/run8_1.dat", sep = " ")
@@ -104,8 +143,11 @@ run8_comb <- cbind(run8_dat, run8_mem)
 run8_plot <- ggplot(run8_comb, aes(x = x1, y = x2, color = as.factor(cluster))) +geom_point() +scale_color_manual(
   values = c("blueviolet", "deeppink1", "orchid1", "mediumpurple1", "violetred")) + labs(title = "5 clusters, sepVal = -0.25", color = "Cluster") + xlab("Variable 1") + ylab("Variable 2")
 run8_plot
+```
 
-
+### Run 9 
+5 clusters of equal size, separation value of -0.50, two non-noisy variables
+```{r}
 genRandomClust(5, sepVal =  -0.5, numNonNoisy = 2, numReplicate = 1, fileName = "run9")
 
 run9_dat <- read.delim("/Users/emilyraney/Documents/clustergen2/clustergen-2/run9_1.dat", sep = " ")
@@ -116,8 +158,11 @@ run9_comb <- cbind(run9_dat, run9_mem)
 run9_plot <- ggplot(run9_comb, aes(x = x1, y = x2, color = as.factor(cluster))) +geom_point() +scale_color_manual(
   values = c("blueviolet", "deeppink1", "orchid1", "mediumpurple1", "violetred")) + labs(title = "5 clusters, sepVal = -0.50", color = "Cluster") + xlab("Variable 1") + ylab("Variable 2")
 run9_plot
+```
 
-
+### Run 10 
+5 clusters of equal size, separation value of -0.75, two non-noisy variables 
+```{r}
 genRandomClust(5, sepVal =  -0.75, numNonNoisy = 2, numReplicate = 1, fileName = "run10")
 
 run10_dat <- read.delim("/Users/emilyraney/Documents/clustergen2/clustergen-2/run10_1.dat", sep = " ")
@@ -128,8 +173,11 @@ run10_comb <- cbind(run10_dat, run10_mem)
 run10_plot <- ggplot(run10_comb, aes(x = x1, y = x2, color = as.factor(cluster))) +geom_point() +scale_color_manual(
   values = c("blueviolet", "deeppink1", "orchid1", "mediumpurple1", "violetred")) + labs(title = "5 clusters, sepVal = -0.75", color = "Cluster") + xlab("Variable 1") + ylab("Variable 2")
 run10_plot
+```
 
-
+### Run 11
+5 clusters of equal size, separation value of -0.99, two non-noisy variables 
+```{r}
 genRandomClust(5, sepVal =  -0.99, numNonNoisy = 2, numReplicate = 1, fileName = "run11")
 
 run11_dat <- read.delim("/Users/emilyraney/Documents/clustergen2/clustergen-2/run11_1.dat", sep = " ")
@@ -140,17 +188,4 @@ run11_comb <- cbind(run11_dat, run11_mem)
 run11_plot <- ggplot(run11_comb, aes(x = x1, y = x2, color = as.factor(cluster))) +geom_point() +scale_color_manual(
   values = c("blueviolet", "deeppink1", "orchid1", "mediumpurple1", "violetred")) + labs(title = "5 clusters, sepVal = -0.99", color = "Cluster") + xlab("Variable 1") + ylab("Variable 2")
 run11_plot
-
-
-
-
-genRandomClust(5, sepVal = 0.01, numNonNoisy = 2, clustszind = 2, rangeN = c(10, 50), numReplicate = 1, fileName = "run12")
-
-run12_dat <- read.delim("/Users/emilyraney/Documents/clustergen2/clustergen-2/run12_1.dat", sep = " ")
-run12_mem <- read.delim("/Users/emilyraney/Documents/clustergen2/clustergen-2/run12_1.mem", header = FALSE, sep = " ", col.names = "cluster")
-
-run12_comb <- cbind(run12_dat, run12_mem)
-
-run12_plot <- ggplot(run12_comb, aes(x = x1, y = x2, color = as.factor(cluster))) +geom_point() +scale_color_manual(
-  values = c("blueviolet", "deeppink1", "orchid1", "mediumpurple1", "violetred")) + labs(title = "5 clusters, unequal size, sepVal = 0.01", color = "Cluster") + xlab("Variable 1") + ylab("Variable 2")
-run12_plot
+```

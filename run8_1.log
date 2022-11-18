@@ -1,0 +1,235 @@
+
+ Log information for the data set run8_1.dat >>
+
+ alpha = 0.05 sepVal = -0.25
+
+ Number of clusters >> 5
+
+ cluster sizes >>
+145 152 85 142 135
+
+ Number of data points >> 659
+
+ Number of dimensions >> 2
+
+ Number of noisy dimensions >> 0
+
+ noisy variables >>
+0
+
+ Number of outliers >> 0
+
+ initial eigenvalues for each cluster >> 
+ (rows correspond to clusters)
+5.537 8.715
+8.614 5.279
+4.747 4.533
+2.793 9.095
+4.933 5.678
+
+ Mean vectors and covariance matrices before rotation --- 1th cluster >>
+
+ mean vector (mu'=Q*mu)>>
+-3.093 0
+
+ covariance matrix (Sigma'=Q*Sigma*t(Q))>>
+
+6.546 -1.479
+-1.479 7.707
+
+ Mean vectors and covariance matrices before rotation --- 2th cluster >>
+
+ mean vector (mu'=Q*mu)>>
+3.093 0
+
+ covariance matrix (Sigma'=Q*Sigma*t(Q))>>
+
+7.044 1.742
+1.742 7.953
+
+ Mean vectors and covariance matrices before rotation --- 3th cluster >>
+
+ mean vector (mu'=Q*mu)>>
+0 5.357
+
+ covariance matrix (Sigma'=Q*Sigma*t(Q))>>
+
+7.658 0.175
+0.175 7.723
+
+ Mean vectors and covariance matrices before rotation --- 4th cluster >>
+
+ mean vector (mu'=Q*mu)>>
+9.279 0
+
+ covariance matrix (Sigma'=Q*Sigma*t(Q))>>
+
+5.358 -3.096
+-3.096 6.529
+
+ Mean vectors and covariance matrices before rotation --- 5th cluster >>
+
+ mean vector (mu'=Q*mu)>>
+6.186 5.357
+
+ covariance matrix (Sigma'=Q*Sigma*t(Q))>>
+
+5.6 -0.228
+-0.228 5.011
+
+ Final eigenvalues for each cluster >> 
+ (rows correspond to clusters)
+8.715 5.537
+9.299 5.698
+7.868 7.513
+9.095 2.793
+5.678 4.933
+
+ *************************************************
+
+ ********************* rotation ******************
+
+ *************************************************
+
+
+ The orthogonal matrix Q >>
+0.976 0.217
+0.217 -0.976
+
+ Mean vectors and covariance matrices after rotation --- 1th cluster >>
+
+ mean vector (mu'=Q*mu)>>
+-3.019 -0.671
+
+ covariance matrix (Sigma'=Q*Sigma*t(Q))>>
+
+5.974 1.094
+1.094 8.279
+
+ Mean vectors and covariance matrices after rotation --- 2th cluster >>
+
+ mean vector (mu'=Q*mu)>>
+3.019 0.671
+
+ covariance matrix (Sigma'=Q*Sigma*t(Q))>>
+
+7.825 -1.77
+-1.77 7.172
+
+ Mean vectors and covariance matrices after rotation --- 3th cluster >>
+
+ mean vector (mu'=Q*mu)>>
+1.163 -5.23
+
+ covariance matrix (Sigma'=Q*Sigma*t(Q))>>
+
+7.735 -0.172
+-0.172 7.646
+
+ Mean vectors and covariance matrices after rotation --- 4th cluster >>
+
+ mean vector (mu'=Q*mu)>>
+9.058 2.014
+
+ covariance matrix (Sigma'=Q*Sigma*t(Q))>>
+
+4.101 2.556
+2.556 7.786
+
+ Mean vectors and covariance matrices after rotation --- 5th cluster >>
+
+ mean vector (mu'=Q*mu)>>
+7.202 -3.887
+
+ covariance matrix (Sigma'=Q*Sigma*t(Q))>>
+
+5.476 0.331
+0.331 5.135
+
+ Final eigenvalues for each cluster >> 
+ (rows correspond to clusters)
+8.715 5.537
+9.299 5.698
+7.868 7.513
+9.095 2.793
+5.678 4.933
+
+ theoretical Separation index matrix >>
+
+-1 -0.246 -0.25 0.164 0.081
+-0.246 -1 -0.246 -0.219 -0.25
+-0.25 -0.246 -1 -0.009 -0.239
+0.164 -0.219 -0.009 -1 -0.25
+0.081 -0.25 -0.239 -0.25 -1
+
+ theoretical projection directions >>
+
+**** cluster 1 and 2
+0.973 0.23
+
+**** cluster 1 and 3
+0.733 -0.68
+
+**** cluster 1 and 4
+0.994 -0.107
+
+**** cluster 1 and 5
+0.94 -0.341
+
+**** cluster 2 and 3
+-0.381 -0.924
+
+**** cluster 2 and 4
+0.997 0.082
+
+**** cluster 2 and 5
+0.639 -0.77
+
+**** cluster 3 and 4
+0.843 0.539
+
+**** cluster 3 and 5
+0.978 0.21
+
+**** cluster 4 and 5
+-0.149 -0.989
+
+ empirical Separation index matrix (alpha= 0.05 )>>
+
+-1 -0.25 -0.216 0.163 0.081
+-0.25 -1 -0.221 -0.242 -0.261
+-0.216 -0.221 -1 -0.014 -0.202
+0.163 -0.242 -0.014 -1 -0.333
+0.081 -0.261 -0.202 -0.333 -1
+
+ empirical projection directions >>
+
+**** cluster 1 and 2
+0.977 0.213
+
+**** cluster 1 and 3
+0.598 -0.802
+
+**** cluster 1 and 4
+0.991 -0.137
+
+**** cluster 1 and 5
+0.943 -0.332
+
+**** cluster 2 and 3
+-0.37 -0.929
+
+**** cluster 2 and 4
+0.998 -0.059
+
+**** cluster 2 and 5
+0.697 -0.717
+
+**** cluster 3 and 4
+0.827 0.563
+
+**** cluster 3 and 5
+0.921 0.39
+
+**** cluster 4 and 5
+-0.094 -0.996
