@@ -9,9 +9,11 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Runs with positive separation values 
+## Clusters of equal size
 
-### Run 1
+### Runs with positive separation values 
+
+#### Run 1
 3 clusters of equal size, separation value of 0.01, two non-noisy variables
 
 ```{r}
@@ -36,7 +38,7 @@ run1_plot <- ggplot(run1_comb, aes(x = x1, y = x2, color = as.factor(cluster))) 
 run1_plot
 ```
 
-### Run 2
+#### Run 2
 5 clusters of equal size, separation value of 0.01, two non-noisy variables
 
 ```{r}
@@ -52,7 +54,7 @@ run2_plot <- ggplot(run2_comb, aes(x = x1, y = x2, color = as.factor(cluster))) 
 run2_plot
 ```
 
-### Run 3 
+#### Run 3 
 5 clusters of equal size, separation value of 0.25, two non-noisy variables
 ```{r}
 genRandomClust(5, sepVal = 0.25, numNonNoisy = 2, numReplicate = 1, fileName = "run3")
@@ -67,7 +69,7 @@ run3_plot <- ggplot(run3_comb, aes(x = x1, y = x2, color = as.factor(cluster))) 
 run3_plot
 ```
 
-### Run 4
+#### Run 4
 5 clusters of equal size, separation value of .5, two non-noisy variables 
 ```{r}
 genRandomClust(5, sepVal = 0.5, numNonNoisy = 2, numReplicate = 1, fileName = "run4")
@@ -82,7 +84,7 @@ run4_plot <- ggplot(run4_comb, aes(x = x1, y = x2, color = as.factor(cluster))) 
 run4_plot
 ```
 
-### Run 5
+#### Run 5
 5 clusters of equal size, separation value of 0.75, two non-noisy variables 
 ```{r}
 genRandomClust(5, sepVal = 0.75, numNonNoisy = 2, numReplicate = 1, fileName = "run5")
@@ -97,7 +99,7 @@ run5_plot <- ggplot(run5_comb, aes(x = x1, y = x2, color = as.factor(cluster))) 
 run5_plot
 ```
 
-### Run 6
+#### Run 6
 5 clusters of equal size, separation value of 0.99, two non-noisy variables 
 ```{r}
 genRandomClust(5, sepVal = 0.99, numNonNoisy = 2, numReplicate = 1, fileName = "run6")
@@ -113,9 +115,9 @@ run6_plot
 ```
 
 
-## Runs with negative separation values 
+### Runs with negative separation values 
 
-### Run 7 
+#### Run 7 
 5 clusters of equal size, separation value of -0.01, two non-noisy variables 
 ```{r}
 genRandomClust(5, sepVal = -0.01, numNonNoisy = 2, numReplicate = 1, fileName = "run7")
@@ -130,7 +132,7 @@ run7_plot <- ggplot(run7_comb, aes(x = x1, y = x2, color = as.factor(cluster))) 
 run7_plot
 ```
 
-### Run 8 
+#### Run 8 
 5 clusters of equal size, separation value of -0.25, two non-noisy variables 
 ```{r}
 genRandomClust(5, sepVal = -0.25, numNonNoisy = 2, numReplicate = 1, fileName = "run8")
@@ -145,7 +147,7 @@ run8_plot <- ggplot(run8_comb, aes(x = x1, y = x2, color = as.factor(cluster))) 
 run8_plot
 ```
 
-### Run 9 
+#### Run 9 
 5 clusters of equal size, separation value of -0.50, two non-noisy variables
 ```{r}
 genRandomClust(5, sepVal =  -0.5, numNonNoisy = 2, numReplicate = 1, fileName = "run9")
@@ -160,7 +162,7 @@ run9_plot <- ggplot(run9_comb, aes(x = x1, y = x2, color = as.factor(cluster))) 
 run9_plot
 ```
 
-### Run 10 
+#### Run 10 
 5 clusters of equal size, separation value of -0.75, two non-noisy variables 
 ```{r}
 genRandomClust(5, sepVal =  -0.75, numNonNoisy = 2, numReplicate = 1, fileName = "run10")
@@ -175,7 +177,7 @@ run10_plot <- ggplot(run10_comb, aes(x = x1, y = x2, color = as.factor(cluster))
 run10_plot
 ```
 
-### Run 11
+#### Run 11
 5 clusters of equal size, separation value of -0.99, two non-noisy variables 
 ```{r}
 genRandomClust(5, sepVal =  -0.99, numNonNoisy = 2, numReplicate = 1, fileName = "run11")
@@ -188,4 +190,41 @@ run11_comb <- cbind(run11_dat, run11_mem)
 run11_plot <- ggplot(run11_comb, aes(x = x1, y = x2, color = as.factor(cluster))) +geom_point() +scale_color_manual(
   values = c("blueviolet", "deeppink1", "orchid1", "mediumpurple1", "violetred")) + labs(title = "5 clusters, sepVal = -0.99", color = "Cluster") + xlab("Variable 1") + ylab("Variable 2")
 run11_plot
+```
+
+
+## Clusters of unequal size 
+
+### Clusters with positive separation values
+
+#### Run 12
+5 clusters of unequal size; there us a user-set range of values (10-50) but the resulting cluster sizes are random. Separation value of 0.01, two non-noisy variables. 
+
+```{r}
+genRandomClust(5, sepVal = 0.01, numNonNoisy = 2, clustszind = 2, rangeN = c(10, 50), numReplicate = 1, fileName = "run12") #set cluster sizes to be unequal [clustsizind = 2], with a range of values from 10-50 [rangeN = 10-50]; the sizes of each cluster can be found in the .log file. 
+
+run12_dat <- read.delim("/Users/emilyraney/Documents/clustergen2/clustergen-2/run12_1.dat", sep = " ")
+run12_mem <- read.delim("/Users/emilyraney/Documents/clustergen2/clustergen-2/run12_1.mem", header = FALSE, sep = " ", col.names = "cluster")
+
+run12_comb <- cbind(run12_dat, run12_mem)
+
+run12_plot <- ggplot(run12_comb, aes(x = x1, y = x2, color = as.factor(cluster))) +geom_point() +scale_color_manual(
+  values = c("blueviolet", "deeppink1", "orchid1", "mediumpurple1", "violetred")) + labs(title = "5 clusters, unequal size, sepVal = 0.01", color = "Cluster") + xlab("Variable 1") + ylab("Variable 2")
+run12_plot
+```
+
+#### Run 13
+5 clusters of unequal size; user-defined sizes for each cluster [clustszind = 3, clustSizes = c(3, 9, 12, 18, 50)]. Separation value of 0.01, two non-noisy variables. 
+
+```{r}
+genRandomClust(5, sepVal = 0.01, numNonNoisy = 2, clustszind = 3, clustSizes = c(3, 9, 12, 18, 50), numReplicate = 1, fileName = "run13") #set cluster sizes individually 
+
+run13_dat <- read.delim("/Users/emilyraney/Documents/clustergen2/clustergen-2/run13_1.dat", sep = " ")
+run13_mem <- read.delim("/Users/emilyraney/Documents/clustergen2/clustergen-2/run13_1.mem", header = FALSE, sep = " ", col.names = "cluster")
+
+run13_comb <- cbind(run13_dat, run13_mem)
+
+run13_plot <- ggplot(run13_comb, aes(x = x1, y = x2, color = as.factor(cluster))) +geom_point() +scale_color_manual(
+  values = c("blueviolet", "deeppink1", "orchid1", "mediumpurple1", "violetred")) + labs(title = "5 clusters, unequal size, sepVal = 0.01", color = "Cluster") + xlab("Variable 1") + ylab("Variable 2")
+run13_plot
 ```
