@@ -4,8 +4,8 @@ library(ggplot2)
 library(patchwork)
 
 
-clustPanelPlot <- function(numClust = 5){
-run01 <- genRandomClust(5, sepVal = -0.99, numNonNoisy = 2, numReplicate = 1, fileName = "run01")
+clustPanelPlot <- function(clustNum = 5){
+run01 <- genRandomClust(clustNum, sepVal = -0.99, numNonNoisy = 2, numReplicate = 1, fileName = "run01")
 
 #generate 5 clusters of equal size with a separation value of -0.99 and two non-noisy variables 
 
@@ -28,7 +28,7 @@ colnames(bind01) <- c("V1", "V2", "cluster")
 #change column names of dataframe 
 
 
-run02 <- genRandomClust(5, sepVal = -0.2, numNonNoisy = 2, numReplicate = 1, fileName = "run02")
+run02 <- genRandomClust(clustNum, sepVal = -0.2, numNonNoisy = 2, numReplicate = 1, fileName = "run02")
 
 dat02 <- run02[3]
 mem02 <- run02[4]
@@ -40,7 +40,7 @@ bind02 <- cbind(d02, m02)
 colnames(bind02) <- c("V1", "V2", "cluster")
 
 
-run03 <- genRandomClust(5, sepVal = 0.2, numNonNoisy = 2, numReplicate = 1, fileName = "run03")
+run03 <- genRandomClust(clustNum, sepVal = 0.2, numNonNoisy = 2, numReplicate = 1, fileName = "run03")
 
 dat03 <- run03[3]
 mem03 <- run03[4]
@@ -52,7 +52,7 @@ bind03 <- cbind(d03, m03)
 colnames(bind03) <- c("V1", "V2", "cluster")
 
 
-run04 <- genRandomClust(5, sepVal = 0.99, numNonNoisy = 2, numReplicate = 1, fileName = "run04")
+run04 <- genRandomClust(clustNum, sepVal = 0.99, numNonNoisy = 2, numReplicate = 1, fileName = "run04")
 
 dat04 <- run04[3]
 mem04 <- run04[4]
@@ -95,5 +95,7 @@ plot04
 
 (plot01|plot02)/(plot03|plot04)
 }
+
+#this function is only capable of running a maximum of five clusters right now due to the plotting language. I'm going to fix this in the future. 
 
 clustPanelPlot()
